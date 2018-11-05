@@ -7,8 +7,9 @@
 .chatcontrol{
   float: left;
   width: 100%;
-
+  
   .chatinput{
+    border-radius: 20px 0 0 20px !important;
     width: 80%;
     float: left;
     border-radius: 0;
@@ -19,6 +20,7 @@
     float: left;
     border-radius: 0;
     text-transform: uppercase;
+    border-radius:  0 20px 20px 0;    
   }
 }
 
