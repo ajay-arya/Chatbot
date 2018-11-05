@@ -1,0 +1,26 @@
+<div class="chatform">
+  <div class="chatlist">
+    <ul class="list-group">
+      <li class="list-group-item" *ngFor="let mes of messages">
+        <img src="{{mes.image}}" class="avatar">
+        <div class="message">
+          {{ mes.content }}
+        </div>
+        <div class="timeform">
+          <span style="float: right;" class="timestamp"> at {{mes.time | date : 'short' }}</span>
+          <i style="float: right; margin: 0 3px 0 0;" class="fa fa-clock-o" aria-hidden="true"></i>
+        </div>
+      </li>
+    </ul>
+  </div>
+
+  <form class="chatcontrol">
+    <div class="input-group mb-3">
+      <input type="text" class="form-control chatinput" placeholder="Enter your Message" name="content" aria-label="Enter your Message"
+        aria-describedby="Enter your Message" #message_content>
+      <div class="input-group-append">
+        <button class="btn btn-primary sendbtn" type="button" (click)="sendMessage(message_content)">Send</button>
+      </div>
+    </div>
+  </form>
+</div>

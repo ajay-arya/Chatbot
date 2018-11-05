@@ -2,7 +2,7 @@
     position: fixed;
     background-color: #666;
     height: 100%;
-    width: 100%;
+    width: 50%;
 }
 .col-sm {
     padding: 0% !important;
@@ -15,7 +15,7 @@
     padding: 25px;
     border-radius: 6px;
     border: 1px solid #66666680;
-    transform: translate(-50%, 50%);
+    transform: translate(-50%, 62%);
 }
 .fix {
     position: fixed;
@@ -24,8 +24,7 @@
     background: #f1f1f1;
 }
 .move   {
-    transform: translate(-50%, 0%);
+    transform: translate(-100%, 0%);
     right: 0;
-    // animation: shimmy 3s infinite;
     transition: all 0.5s ease-in-out;
 }

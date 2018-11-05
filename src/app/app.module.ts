@@ -6,21 +6,27 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './user/login/login.component';
 import { SignupComponent } from './user/signup/signup.component';
 import { HomeComponent } from './home/home.component';
-// import { AlertModule } from 'ngx-bootstrap';
+import { DialogflowComponent } from './chat/dialogflow/dialogflow.component';
+
+import { ChatService } from './service/chat/chat.service';
+import { Http, HttpModule } from '@angular/http'
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     SignupComponent,
-    HomeComponent
+    HomeComponent,
+    DialogflowComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    // Http,
+    HttpModule
     // AlertModule.forRoot(),
   ],
-  providers: [],
+  providers: [ChatService, HttpModule, BrowserModule],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

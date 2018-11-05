@@ -15,7 +15,7 @@
     padding: 25px;
     border-radius: 6px;
     border: 1px solid #66666680;
-    transform: translate(-50%, 50%);
+    transform: translate(-50%, 21%);
 }
 .fix {
     position: fixed;
@@ -24,8 +24,18 @@
     background: #f1f1f1;
 }
 .move   {
-    transform: translate(-50%, 0%);
-    right: 0;
-    // animation: shimmy 3s infinite;
-    transition: all 1s ease-in-out;
+    right: 50%;
+    transform: translate(100%, 0%);
+    transition: all 0.5s ease-in-out;
 }
+.dis    {
+    display: none;
+}
+// .cover  {
+//     position: fixed;
+//     height: 100%;
+//     width: 100%;
+// }
+// .bk {
+//     background-color: #666;
+// }

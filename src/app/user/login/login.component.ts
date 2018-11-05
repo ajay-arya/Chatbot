@@ -21,4 +21,8 @@ export class LoginComponent implements OnInit {
     }, 500);
   }
 
+  login() {
+    this.router.navigate(['dialog']);
+  }
+
 }
