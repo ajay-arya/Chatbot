@@ -1,3 +1,32 @@
-<p>
-  login works!
-</p>
+<div class="fix"></div>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm">
+      <div class="container Acenter">
+        <h3 class="center"> User Login</h3>
+        <form>
+          <div class="form-group">
+            <label for="username">User Name</label>
+            <input type="text" class="form-control form-control-sm" id="username" aria-describedby="emailHelp" placeholder="Enter UserName">
+          </div>
+          <div class="form-group">
+            <label for="pass">Password</label>
+            <input type="password" class="form-control form-control-sm" id="pass" placeholder="Password">
+          </div>
+          <!-- <div class="form-group form-check">
+            <input type="checkbox" class="form-check-input" id="exampleCheck1">
+            <label class="form-check-label" for="exampleCheck1">Check me out</label>
+          </div> -->
+          <button type="submit" class="btn btn-primary" >Submit</button>
+          <small id="emailHelp" class="form-text text-muted" style="display:inline"> Don't have one!, then
+              <a (click)="signup()">Sign Up.</a>
+              <!-- <a routerLink='/signup'>Sign Up.</a> -->
+            </small>
+        </form>
+      </div>
+    </div>
+    <div class="col-sm">
+      <div class="color"></div>
+    </div>
+  </div>
+</div>
