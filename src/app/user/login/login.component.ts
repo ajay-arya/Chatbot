@@ -22,7 +22,7 @@ export class LoginComponent implements OnInit {
   }
 
   login() {
-    this.router.navigate(['dialog']);
+    this.router.navigate(['Chatbot']);
   }
 
 }

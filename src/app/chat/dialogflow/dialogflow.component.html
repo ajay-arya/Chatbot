@@ -1,20 +1,21 @@
 <div class="chatform">
   <div class="chatlist">
-    <ul class="list-group">
-      <li class="list-group-item" *ngFor="let mes of messages">
-        <img src="{{mes.image}}" class="avatar">
-        <div class="message">
+    <ul #scrollMe style="overflow: scroll; height: 100%" class="list-group">
+      <li class="list-group-item br" *ngFor="let mes of messages" [ngClass]= "{'l': mes.left,'r': !mes.left}" >
+        <!-- <li class="list-group-item br" ng-style="{ 'border-radius' : (flag) ? '55px 55px 55px 0' : '55px 55px 0 55px' }" *ngFor="let mes of messages"> -->
+        <img src="{{mes.image}}" [ngClass]= "{'avatarl': mes.left,'avatarr': !mes.left}" >
+        <div class="message" [ngClass]= "{'fr' : !mes.left}">
           {{ mes.content }}
         </div>
-        <div class="timeform">
-          <span style="float: right;" class="timestamp"> at {{mes.time | date : 'short' }}</span>
-          <i style="float: right; margin: 0 3px 0 0;" class="fa fa-clock-o" aria-hidden="true"></i>
+        <div class="timeform" [ngClass]= "{'timel': !mes.left,'timer': mes.left}">
+          <i  class="fa fa-clock-o" aria-hidden="true"></i>
+          <span  class="timestamp"> at {{mes.time | date : 'short' }}</span>
         </div>
       </li>
     </ul>
   </div>
 
-  <form class="chatcontrol">
+  <!-- <form class="chatcontrol">
     <div class="input-group mb-3">
       <input type="text" class="form-control chatinput" placeholder="Enter your Message" name="content" aria-label="Enter your Message"
         aria-describedby="Enter your Message" #message_content>
@@ -22,5 +23,14 @@
         <button class="btn btn-primary sendbtn" type="button" (click)="sendMessage(message_content)">Send</button>
       </div>
     </div>
-  </form>
+  </form> -->
+
+  <div class="chatcontrol">
+      <div class="input-group mb-3">
+          <input [(ngModel)] = "content" class="form-control chatinput" (keydown.enter) = "sendMessage(content)">
+        <div class="input-group-append">
+          <button class="btn btn-primary sendbtn" type="button" (click)="sendMessage(content)">Send</button>
+        </div>
+      </div>
+    </div>
 </div>

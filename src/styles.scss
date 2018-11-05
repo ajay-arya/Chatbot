@@ -23,6 +23,9 @@ h1,h2,h3,h4,h5,h6{
 .pt{
     cursor: pointer !important;
 }
+.dis{
+    pointer-events: none;
+}
 textarea:hover, input:hover, textarea:active, input:active, 
 textarea:focus, input:focus, button:focus, button:active,
 label:focus, .btn:active, .btn.active, .form-control:focus,

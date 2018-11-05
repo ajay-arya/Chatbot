@@ -13,6 +13,8 @@ export class ChatService {
   constructor(private http: Http) { }
 
   sendMessage(message)  {
+    console.log('cha');
+    
     let data = {
       lang: 'en',
       sessionId: '12345',

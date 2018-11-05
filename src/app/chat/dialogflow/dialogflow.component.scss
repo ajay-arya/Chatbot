@@ -26,27 +26,56 @@
   font-size: 1em;
   font-style: italic;
   font-weight: 400;
+  display: inline;
 }
 
 .timeform {
-  float: left;
-  width: 100%;
-
-  i {
-    margin-left: 20px;
-  }
+  display: inline;
 
   .timestamp{
     font-size: 0.6em;
   }
 }
 
-.avatar{
+.avatarl{
   width: 50px;
   margin-right: 20px;
+}
+.avatarr  {
+  width: 50px;
+  margin-left: 20px;
+  float: right;
 }
 
 .chatlist{
   height: 80vh;
   overflow-y: scroll;
+}
+
+.br {
+  margin-bottom: 10px;
+}
+
+.l  {
+  width: 90%;
+  border-radius: 55px 55px 55px 0;
+  background: whitesmoke;
+}
+.r {
+  border-radius: 55px 55px 0 55px;  
+  width: 90%;
+  border-radius: 55px 55px 0 55px;
+  transform: translate(10%, 0);
+  background: turquoise;
+}
+.timer  {
+  float: right;
+  margin: 30px 3px 0 0;
+}
+.timel  {
+  float: left;
+  margin: 30px 3px 0 0;
+}
+.fr {
+  float: right;
 }
