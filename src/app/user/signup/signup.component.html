@@ -8,23 +8,40 @@
     <div class="col-sm" style="z-index: 1;">
       <div class="container Acenter">
         <h3 class="center"> User Signup</h3>
+        <span class="small"> All Required</span>
+        <span class="small" *ngIf="validFill" style="color:red">{{ mes }}</span>
         <hr>
         <form>
           <div class="form-group">
             <label for="Fname">Full Name</label>
-            <input type="text" class="form-control form-control-sm" id="Fname" aria-describedby="emailHelp" placeholder="Enter UserName">
+            <input type="text" (keyup.enter)='signup()' (keyup)='validate($event.key, 1)' [(ngModel)]='Fname' class="form-control form-control-sm"
+              name='Fname' id="Fname" aria-describedby="emailHelp" placeholder="Enter UserName">
+            <span class="small" *ngIf="validFN" style="color:red">{{ mesFN }}</span>
+
           </div>
           <div class="form-group">
             <label for="username">User Name</label>
-            <input type="text" class="form-control form-control-sm" id="username" aria-describedby="emailHelp" placeholder="Enter UserName">
+            <input type="text" class="form-control form-control-sm" (keyup.enter)='signup()' (keyup)='validate($event.key, 2)' [(ngModel)]='Uname'
+              name='Uname' id="username" aria-describedby="emailHelp" placeholder="Enter UserName">
+            <span class="small mar" *ngIf="validUN" style="color:red">{{ mesUN }}</span>
           </div>
           <div class="form-group">
             <label for="email">E-mail</label>
-            <input type="text" class="form-control form-control-sm" id="email" aria-describedby="emailHelp" placeholder="Enter UserName">
+            <input type="text" class="form-control form-control-sm" (keyup.enter)='signup()' (keyup)='validate($event.key, 3)' [(ngModel)]='Email'
+              name='Email' id="email" aria-describedby="emailHelp" placeholder="Enter UserName">
+            <span class="small mar" *ngIf="validEM" style="color:red">{{ mesEM }}</span>
           </div>
           <div class="form-group">
             <label for="pass">Password</label>
-            <input type="password" class="form-control form-control-sm" id="pass" placeholder="Password">
+            <input type="password" class="form-control form-control-sm" id="pass" (keyup.enter)='signup()' (keyup)='validate($event.key, 4)'
+              name='password' [(ngModel)]='password' placeholder="Password">
+            <span class="small mar" *ngIf="validPS" style="color:red">{{ mesPS }}</span>
+          </div>
+          <div class="form-group dis a">
+            <label for="cpass">Password</label>
+            <input type="password" class="form-control form-control-sm" id="cpass" (keyup.enter)='signup()' name='Cpassword' (keyup)='validate($event.key, 5)'
+              [(ngModel)]='Cpassword' placeholder="Password">
+            <span class="small mar" *ngIf="validCP" style="color:red">{{ mesCP }}</span>
           </div>
           <!-- <div class="form-group form-check">
             <input type="checkbox" class="form-check-input" id="exampleCheck1">

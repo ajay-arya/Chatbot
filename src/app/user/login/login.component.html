@@ -6,25 +6,31 @@
         <h3 class="center"> User Login</h3>
         <hr>
         <!-- <form> -->
-          <div class="form-group">
-            <label for="username">User Name</label>
-            <input type="text" class="form-control form-control-sm" (keyup.enter) = 'login()' id="username" [(ngModel)] = 'Uname' aria-describedby="emailHelp" placeholder="Enter UserName">
-            <span class="small mar" *ngIf="usernameValidation" style="color:red">*Enter valid Username</span>
-          </div>
-          <div class="form-group">
-            <label for="pass">Password</label>
-            <input type="password" class="form-control form-control-sm" (keyup.enter) = 'login()' [(ngModel)] = 'password' id="pass" placeholder="Password">
-          </div>
-          <!-- <div class="form-group form-check">
+        <div class="form-group">
+          <label for="username">User Name</label>
+          <input type="text" class="form-control form-control-sm" (keyup.enter)='login()' (keyup)='validate($event.key, 1)' id="username"
+            [(ngModel)]='Uname' aria-describedby="emailHelp" placeholder="Enter UserName">
+          <span class="small mar" *ngIf="usernameValidation" style="color:red">{{ validUN }}</span>
+        </div>
+        <div class="form-group">
+          <label for="pass">Password</label>
+          <input type="password" class="form-control form-control-sm" (keyup.enter)='login()' [(ngModel)]='password' (keyup)='validate($event.key, 2)'
+            id="pass" placeholder="Password">
+          <span class="small mar" *ngIf="passwordValidation" style="color:red">{{ validPS }}</span>
+        </div>
+        <!-- <div class="form-group form-check">
             <input type="checkbox" class="form-check-input" id="exampleCheck1">
             <label class="form-check-label" for="exampleCheck1">Check me out</label>
           </div> -->
-          <button type="submit" class="btn btn-primary" (click) = 'login()' >Log in</button>
-          <small id="emailHelp" class="form-text text-muted" style="display:inline"> Don't have one!, then
-              <a (click)="signup()"  class="text-primary pt">Sign Up.</a>
-              <!-- <a routerLink='/signup'>Sign Up.</a> -->
-            </small>
+        <button type="submit" class="btn btn-primary" (click)='login()'>Log in</button>
+        <small id="emailHelp" class="form-text text-muted" style="display:inline"> Don't have one!, then
+          <a (click)="signup()" class="text-primary pt">Sign Up.</a>
+          <br>
+          <br>
+          <!-- <a routerLink='/signup'>Sign Up.</a> -->
+        </small>
         <!-- </form> -->
+        <span class="small" *ngIf="userValidation" style="color:red; left: 16%; position: relative; ">Wrong UserName or Password!</span>
       </div>
     </div>
     <div class="col-sm">
