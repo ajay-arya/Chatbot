@@ -8,11 +8,12 @@
         <!-- <form> -->
           <div class="form-group">
             <label for="username">User Name</label>
-            <input type="text" class="form-control form-control-sm" id="username" aria-describedby="emailHelp" placeholder="Enter UserName">
+            <input type="text" class="form-control form-control-sm" (keyup.enter) = 'login()' id="username" [(ngModel)] = 'Uname' aria-describedby="emailHelp" placeholder="Enter UserName">
+            <span class="small mar" *ngIf="usernameValidation" style="color:red">*Enter valid Username</span>
           </div>
           <div class="form-group">
             <label for="pass">Password</label>
-            <input type="password" class="form-control form-control-sm" id="pass" placeholder="Password">
+            <input type="password" class="form-control form-control-sm" (keyup.enter) = 'login()' [(ngModel)] = 'password' id="pass" placeholder="Password">
           </div>
           <!-- <div class="form-group form-check">
             <input type="checkbox" class="form-check-input" id="exampleCheck1">
@@ -20,7 +21,7 @@
           </div> -->
           <button type="submit" class="btn btn-primary" (click) = 'login()' >Log in</button>
           <small id="emailHelp" class="form-text text-muted" style="display:inline"> Don't have one!, then
-              <a (click)="signup()" class="text-primary pt">Sign Up.</a>
+              <a (click)="signup()"  class="text-primary pt">Sign Up.</a>
               <!-- <a routerLink='/signup'>Sign Up.</a> -->
             </small>
         <!-- </form> -->

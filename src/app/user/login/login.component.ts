@@ -7,11 +7,13 @@ import { Router } from '@angular/router';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
+  Uname;
+  password;
+  usernameValidation = false;
 
   constructor(private router: Router, public render: Renderer2, public el:ElementRef) { }
 
-  ngOnInit() {
-  }
+  ngOnInit() {  }
 
   signup()  {
     const mov = this.el.nativeElement.getElementsByClassName('color')[0];
@@ -22,7 +24,9 @@ export class LoginComponent implements OnInit {
   }
 
   login() {
-    this.router.navigate(['Chatbot']);
+    console.log(this.Uname);
+    console.log(this.password);
+    // this.router.navigate(['Chatbot']);
   }
 
 }
