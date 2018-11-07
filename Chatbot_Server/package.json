@@ -1,0 +1,14 @@
+{
+  "name": "chatbot_server",
+  "version": "1.0.0",
+  "description": "Sample web-app for web MINI-PROJECT",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Ajay Kumar BC",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.16.4"
+  }
+}

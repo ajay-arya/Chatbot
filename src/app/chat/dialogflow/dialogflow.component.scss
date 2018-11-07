@@ -24,6 +24,11 @@
   }
 }
 
+.list-group :hover {
+  cursor: pointer;
+  box-shadow: 0 0 6px rgba(152, 159, 162, 0.397);
+}
+
 .message {
   font-size: 1em;
   font-style: italic;
