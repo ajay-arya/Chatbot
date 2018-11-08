@@ -32,9 +32,15 @@
     transform: translate(100%, 0%);
     transition: all 0.5s ease-in-out;
 }
-.dis    {
-    display: none;
+.remove   {
+    right: 100%;
+    transform: translate(100%, 0%);
+    transition: all 0.5s ease-in-out;
 }
+.form-groupc    {
+    margin-bottom: 20px;
+}
+
 // .cover  {
 //     position: fixed;
 //     height: 100%;

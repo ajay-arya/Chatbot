@@ -69,9 +69,9 @@ export class LoginComponent implements OnInit {
         }, 500);
         setTimeout(() => {
           this.router.navigate(['signup']);
+          // this.router.navigate(['Chatbot']);
         }, 1250);
       }
-      // this.router.navigate(['Chatbot']);
     }
   }
 
@@ -97,4 +97,5 @@ export class LoginComponent implements OnInit {
       this.passwordValidation = false;
     }
   }
+  
 }
