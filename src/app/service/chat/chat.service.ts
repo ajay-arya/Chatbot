@@ -14,17 +14,17 @@ export class ChatService {
 
   sendMessage(message)  {
     console.log('cha');
-    
-    let data = {
+
+    const data = {
       lang: 'en',
       sessionId: '12345',
       query: message
-    }
-    
-    let headers = new Headers();
-    headers.append("Authorization", "Bearer " + this.ourtoken);
-    
-    return this.http.post(this.url, data, {headers: headers}).pipe(map((res: any) =>{
+    };
+
+    const headers = new Headers();
+    headers.append('Authorization', 'Bearer ' + this.ourtoken);
+
+    return this.http.post(this.url, data, {headers: headers}).pipe(map((res: any) => {
       return res.json();
     }));
   }

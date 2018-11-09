@@ -9,6 +9,7 @@ import { SignupComponent } from './user/signup/signup.component';
 import { HomeComponent } from './home/home.component';
 import { DialogflowComponent } from './chat/dialogflow/dialogflow.component';
 
+// import { crypting } from './model/crypting';
 import { ChatService } from './service/chat/chat.service';
 import { Http, HttpModule } from '@angular/http';
 
@@ -18,6 +19,7 @@ import { Http, HttpModule } from '@angular/http';
     LoginComponent,
     SignupComponent,
     HomeComponent,
+    // crypting,
     DialogflowComponent
   ],
   imports: [

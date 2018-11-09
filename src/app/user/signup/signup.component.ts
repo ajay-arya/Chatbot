@@ -1,6 +1,6 @@
 import { Component, OnInit, ElementRef, Renderer2 } from '@angular/core';
 import { Router } from '@angular/router';
-import { crypting } from '../../crypting';
+import { crypting } from '../../model/crypting';
 
 
 @Component({
