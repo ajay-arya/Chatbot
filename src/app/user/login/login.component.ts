@@ -74,8 +74,8 @@ export class LoginComponent implements OnInit {
           this.render.addClass(mov, 'move-half');
         }, 500);
         setTimeout(() => {
-          this.router.navigate(['signup']);
-          // this.router.navigate(['Chatbot']);
+          // this.router.navigate(['signup']);
+          this.router.navigate(['Chatbot']);
         }, 1250);
       }
     }
