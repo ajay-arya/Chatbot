@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms'
+import { FormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -10,7 +10,7 @@ import { HomeComponent } from './home/home.component';
 import { DialogflowComponent } from './chat/dialogflow/dialogflow.component';
 
 import { ChatService } from './service/chat/chat.service';
-import { Http, HttpModule } from '@angular/http'
+import { Http, HttpModule } from '@angular/http';
 
 @NgModule({
   declarations: [

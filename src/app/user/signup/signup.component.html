@@ -21,7 +21,7 @@
           </div>
           <div class="form-group">
             <label for="username">User Name</label>
-            <input type="text" class="form-control form-control-sm" (keyup.enter)='signup()' (keyup)='validate($event.key, 2)' [(ngModel)]='Uname'
+            <input type="text" class="form-control form-control-sm" (keyup.enter)='userValidate()' (keydown.tab) = 'userValidate()' (keyup)='validate($event.key, 2)' [(ngModel)]='Uname'
               name='Uname' id="username" aria-describedby="emailHelp" placeholder="Enter UserName">
             <span class="small mar" *ngIf="validUN" style="color:red">{{ mesUN }}</span>
           </div>
@@ -47,8 +47,8 @@
             <input type="checkbox" class="form-check-input" id="exampleCheck1">
             <label class="form-check-label" for="exampleCheck1">Check me out</label>
           </div> -->
-          <button type="submit" (click)="signup()" class="btn btn-primary">{{ sub }}</button>
-          <small id="emailHelp" class="form-text text-muted" style="display:inline"> Already have an Account
+          <div type="button" (click)="signup()" class="btn btn-primary">{{ sub }}</div>
+          <small id="emailHelp" class=" form-text text-muted" style="display:inline"> Already have an Account
             <a (click)="login()" class="text-primary pt">Log In</a>.
           </small>
         </form>

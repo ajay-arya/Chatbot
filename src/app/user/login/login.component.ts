@@ -2,6 +2,7 @@ import { Component, OnInit, Renderer2, ElementRef } from '@angular/core';
 import { Router } from '@angular/router';
 import { isRegExp } from 'util';
 import { and } from '@angular/router/src/utils/collection';
+import { ServerService } from '../../service/server.service';
 
 @Component({
   selector: 'app-login',
@@ -26,11 +27,16 @@ export class LoginComponent implements OnInit {
     uname: '1',
     password: '2'
   }];
-  constructor(private router: Router, public render: Renderer2, public el: ElementRef) { }
+  constructor(private router: Router, public render: Renderer2, public el: ElementRef, private server: ServerService) { }
 
   ngOnInit() {
-    this.Uname = "";
+    this.Uname = '';
     this.password = '';
+
+    this.server.getUsersDetail();
+    // .subscribe((response) => {
+    //   console.log(response);
+    // });
   }
 
   signup() {
@@ -44,7 +50,7 @@ export class LoginComponent implements OnInit {
   login() {
     const mov = this.el.nativeElement.getElementsByClassName('color')[0];
     const finish = this.el.nativeElement.getElementsByClassName('Acenter')[0];
-    var flag = 0;
+    let flag = 0;
     if (this.Uname.length === 0) {
       this.validUN = '*Enter a User Name';
       this.usernameValidation = true;
@@ -52,12 +58,12 @@ export class LoginComponent implements OnInit {
       this.validPS = '*Enter a Password';
       this.passwordValidation = true;
     } else {
-      for (var i of this.user) {
-        // console.log(i);
-        if (i.uname === this.Uname)
+      for (const i of this.user) {
+        if (i.uname === this.Uname) {
           if (i.password === this.password) {
             flag = 1;
           }
+        }
       }
       if (flag === 0) {
         this.userValidation = true;
@@ -82,14 +88,14 @@ export class LoginComponent implements OnInit {
 
     this.usernameValidation = false;
     if (flag === 1) {
-      var pattern = /[A-Za-z0-9]$/;
+      const pattern = /[A-Za-z0-9]$/;
 
       if (data === ' ') {
         this.validUN = '*No Spaces are allowed';
         this.usernameValidation = !this.usernameValidation;
         this.Uname = this.Uname.trim();
       } else if (!pattern.test(data) && data !== '-') {
-        this.validUN = "*Special charecters are not allowed";
+        this.validUN = '*Special charecters are not allowed';
         this.usernameValidation = !this.usernameValidation;
         this.Uname = this.Uname.slice(0, -1);
       }
@@ -97,5 +103,5 @@ export class LoginComponent implements OnInit {
       this.passwordValidation = false;
     }
   }
-  
+
 }
