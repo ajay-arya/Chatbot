@@ -1,0 +1,35 @@
+.home   {
+    height: 65%;
+    width: 100%;
+    background: #07c1b0b5;
+    position: absolute;
+    box-shadow: 0 1px 10px;
+}
+.top    {
+    margin-top: 25px;
+}
+.hi {
+    margin: 20px;
+    display: inline;
+}
+.welcome    {
+    left: 50%;
+    transform: translate(-50%, 12px);
+    font-size: 4.5rem;
+    transition: all 1s ease-in;
+    position: absolute;
+}
+.img    {    
+    height: 66px;
+    border: 2px solid white;
+    position: absolute;
+}
+.hr {
+    color: white;
+    background: white;
+    border: 1px solid;
+    box-shadow: 0px 0px 33px white;
+    position: absolute;
+    // transform: translate(0%, 55px);
+    width: 100%;
+}

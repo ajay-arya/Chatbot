@@ -27,6 +27,7 @@ export class LoginComponent implements OnInit {
     uname: '1',
     password: '2'
   }];
+  mov;
   constructor(private router: Router, public render: Renderer2, public el: ElementRef, private server: ServerService) { }
 
   ngOnInit() {
@@ -34,21 +35,25 @@ export class LoginComponent implements OnInit {
     this.password = '';
 
     this.server.getUsersDetail();
-    // .subscribe((response) => {
-    //   console.log(response);
-    // });
+    this.mov = this.el.nativeElement.getElementsByClassName('color')[0];
+    if (this.server.logfromsign === true) {
+      this.server.logfromsign = false;
+      this.render.addClass(this.mov, 'tt');
+    } else {
+      setTimeout(() => {
+        this.render.addClass(this.mov, 'tt');
+      }, 5);
+    }
   }
 
   signup() {
-    const mov = this.el.nativeElement.getElementsByClassName('color')[0];
-    this.render.addClass(mov, 'move');
+    this.render.addClass(this.mov, 'move');
     setTimeout(() => {
       this.router.navigate(['signup']);
     }, 500);
   }
 
   login() {
-    const mov = this.el.nativeElement.getElementsByClassName('color')[0];
     const finish = this.el.nativeElement.getElementsByClassName('Acenter')[0];
     let flag = 0;
     if (this.Uname.length === 0) {
@@ -69,12 +74,12 @@ export class LoginComponent implements OnInit {
         this.userValidation = true;
       } else {
         this.render.addClass(finish, 'dis');
-        this.render.addClass(mov, 'move');
+        this.render.addClass(this.mov, 'move');
         setTimeout(() => {
-          this.render.addClass(mov, 'move-half');
+          this.render.addClass(this.mov, 'move-half');
         }, 500);
         setTimeout(() => {
-          // this.router.navigate(['signup']);
+          this.server.logedin = true;
           this.router.navigate(['Chatbot']);
         }, 1250);
       }

@@ -1,36 +1,45 @@
+<div class="header">
+  <div class="right">
+      <h5 class="username">
+          ajay-arya |
+      </h5>
+    
+    <img src="assets/images/powerIcon.png" (click) = 'logout()' class="pt imgWrapper">
+  </div>
+  <div class="head pt" (mouseenter)="hover();">
+    <img src="assets/images/chatbot.png" class="cimg chatimg">
+    <h5 style="display: inline;">
+      Chatbot
+    </h5>
+  </div>
+</div>
 <div class="chatform">
   <div class="chatlist">
     <ul #scrollMe style="overflow: scroll; height: 100%" class="list-group">
-      <li class="list-group-item br" *ngFor="let mes of messages" [ngClass]= "{'l': mes.left,'r': !mes.left}" >
-        <!-- <li class="list-group-item br" ng-style="{ 'border-radius' : (flag) ? '55px 55px 55px 0' : '55px 55px 0 55px' }" *ngFor="let mes of messages"> -->
-        <img src="{{mes.image}}" [ngClass]= "{'avatarl': mes.left,'avatarr': !mes.left}" >
-        <div class="message" [ngClass]= "{'fr' : !mes.left}">
+      <li class="list-group-item br" *ngFor="let mes of messages" [ngClass]="{'l': mes.left,'r': !mes.left}">
+        <img src="{{mes.image}}" [ngClass]="{'avatarl': mes.left,'avatarr': !mes.left}">
+        <div class="message" [ngClass]="{'fr' : !mes.left}">
           {{ mes.content }}
         </div>
-        <div class="timeform" [ngClass]= "{'timel': !mes.left,'timer': mes.left}">
-          <i  class="fa fa-clock-o" aria-hidden="true"></i>
-          <span  class="timestamp"> at {{mes.time | date : 'short' }}</span>
+        <div class="timeform" [ngClass]="{'timel': !mes.left,'timer': mes.left}">
+          <i class="fa fa-clock-o" aria-hidden="true"></i>
+          <span class="timestamp"> at {{mes.time | date : 'short' }}</span>
         </div>
       </li>
     </ul>
   </div>
 
-  <!-- <form class="chatcontrol">
-    <div class="input-group mb-3">
-      <input type="text" class="form-control chatinput" placeholder="Enter your Message" name="content" aria-label="Enter your Message"
-        aria-describedby="Enter your Message" #message_content>
-      <div class="input-group-append">
-        <button class="btn btn-primary sendbtn" type="button" (click)="sendMessage(message_content)">Send</button>
-      </div>
-    </div>
-  </form> -->
-
   <div class="chatcontrol">
-      <div class="input-group mb-3">
-          <input [(ngModel)] = "content" class="form-control chatinput" (keydown.enter) = "sendMessage(content)">
-        <div class="input-group-append">
-          <button class="btn btn-primary sendbtn" type="button" (click)="sendMessage(content)">Send</button>
-        </div>
+    <div class="input-group mb-3">
+      <input [(ngModel)]="content" class="form-control chatinput" (keydown.enter)="sendMessage(content)">
+      <div class="input-group-append">
+        <button class="btn bt sendbtn" (mouseenter) = 'hoverBox = true; sendhover()' (mouseleave)="hoverBox = false; sendhover();" type="button" (click)="sendMessage(content)">Send</button>
       </div>
     </div>
+  </div>
+</div>
+<div (click)='resend()' class="login pt dis">
+  <a class=" primary ">
+    Please login first!.....
+  </a>
 </div>

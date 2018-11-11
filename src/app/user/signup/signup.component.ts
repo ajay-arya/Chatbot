@@ -1,6 +1,7 @@
 import { Component, OnInit, ElementRef, Renderer2 } from '@angular/core';
 import { Router } from '@angular/router';
 import { crypting } from '../../model/crypting';
+import { ServerService } from 'src/app/service/server.service';
 
 
 @Component({
@@ -48,7 +49,7 @@ export class SignupComponent implements OnInit {
   newUserName = false;
   mes = ' *Fill all details';
 
-  constructor(private router: Router, public el: ElementRef, public render: Renderer2) { }
+  constructor(private router: Router, public el: ElementRef, public render: Renderer2, private server: ServerService) { }
 
   ngOnInit() {
     this.set = 0;
@@ -56,12 +57,14 @@ export class SignupComponent implements OnInit {
     this.newUserName = false;
   }
   login() {
-    const mov = this.el.nativeElement.getElementsByClassName('color')[0];
-
-    this.render.addClass(mov, 'move');
-    setTimeout(() => {
-      this.router.navigate(['login']);
-    }, 500);
+    if (confirm('Move to Login?')) {
+      const move = this.el.nativeElement.getElementsByClassName('color')[0];
+      this.render.addClass(move, 'move');
+      this.server.logfromsign = true;
+      setTimeout(() => {
+        this.router.navigate(['login']);
+      }, 500);
+    }
   }
 
   signup() {

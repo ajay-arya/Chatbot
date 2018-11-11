@@ -18,18 +18,12 @@
             id="pass" placeholder="Password">
           <span class="small mar" *ngIf="passwordValidation" style="color:red">{{ validPS }}</span>
         </div>
-        <!-- <div class="form-group form-check">
-            <input type="checkbox" class="form-check-input" id="exampleCheck1">
-            <label class="form-check-label" for="exampleCheck1">Check me out</label>
-          </div> -->
         <button type="submit" class="btn btn-primary" (click)='login()'>Log in</button>
         <small id="emailHelp" class="form-text text-muted" style="display:inline"> Don't have one!, then
           <a (click)="signup()" class="text-primary pt">Sign Up.</a>
           <br>
           <br>
-          <!-- <a routerLink='/signup'>Sign Up.</a> -->
         </small>
-        <!-- </form> -->
         <span class="small" *ngIf="userValidation" style="color:red; left: 16%; position: relative; ">Wrong UserName or Password!</span>
       </div>
     </div>

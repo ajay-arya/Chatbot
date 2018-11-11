@@ -8,6 +8,8 @@ import { map } from 'rxjs/operators';
 })
 export class ServerService {
   url = 'localhost:3000/';
+  logedin = true;
+  logfromsign = false;
 
   constructor(private http: Http) { }
 
@@ -15,7 +17,7 @@ export class ServerService {
     console.log('come');
     return !this.http.get(this.url).pipe(map(Response => {
       console.log('data: ', Response);
-    })).subscribe(data =>  {
+    })).subscribe(data => {
       console.log((data));
     });
     // return this.http.get(this.rootURL + 'api/mainquiz')

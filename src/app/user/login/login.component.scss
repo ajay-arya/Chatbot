@@ -4,10 +4,16 @@
     padding: 35px 75px;
     height: 100%;
     width: 50%;
+    transform: translate(100%, 0%);
+}
+.tt {
+    transform: translate(0%, 0%);
+    transition: all 1s ease-in-out;
 }
 .col-sm {
     padding: 0% !important;
 }
+
 .Acenter    {
     position: absolute;
     width: 60%;

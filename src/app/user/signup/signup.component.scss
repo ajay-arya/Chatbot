@@ -11,6 +11,13 @@
 .mar    {
     margin-left: 25px;
 }
+.button :hover  {
+    color: #ffffff;
+    background: #007bff;
+    border: 1px solid #007eff;
+    border-radius: 6px;
+    cursor: pointer;
+}
 .Acenter    {
     position: absolute;
     width: 60%;
