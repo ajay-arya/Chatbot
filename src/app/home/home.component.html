@@ -1,10 +1,33 @@
-<div class="home">
+<div class="home" (keyup)='key()'>
     <div class='container-flex top'>
         <h1 class="hom hi">hi! WELCOME to,</h1>
         <img src="../../assets/images/chatbot.png" class="img">
         <h1 class="welcome hom">Chatbot</h1>
+        <div class="vr desi" (mouseenter)='hoverBox = true; sendhover()' (mouseleave)="hoverBox = false; sendhover();">
+            <h4 class="next">Details</h4>
+        </div>
+        <div class="vr pt" (click)="detailPage()"></div>
     </div>
     <hr class="hr">
+    <div id='write' class="write">
+        {{ data }}
+    </div>
+    <input [(ngModel)]='message' class="input">
+</div>
+<div class="details">
+    <h4 class="cen"> Web Mini-Project 2018 </h4><br><br>
+    <hr>
+    <div>
+        <div class="fir">
+            <h5>Ajay Kumar BC</h5> 1AY15CS009
+        </div>
+        <div class="cen">
+            <h5>Ajaya Kumara</h5> 1AY15CS010
+        </div>
+        <div class="las">
+            <h5>Manish J</h5> 1AY14CS064
+        </div>
+    </div>
+    <br><br><hr>
 
 </div>
-<button class="btn btn-primary" (click)='login()'>login</button>

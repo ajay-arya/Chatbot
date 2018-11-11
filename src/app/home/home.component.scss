@@ -19,10 +19,28 @@
     transition: all 1s ease-in;
     position: absolute;
 }
+.input{
+    opacity: 0.04;
+    overflow: visible;
+    position: absolute;
+    top: 61%;
+    height: 165px;
+    left: 0;
+    width: 100%;
+}
+.write  {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, 50%);
+    font-size: 1.3rem;
+    color: white;
+}
 .img    {    
     height: 66px;
     border: 2px solid white;
     position: absolute;
+    margin-right: 450px;
 }
 .hr {
     color: white;
@@ -32,4 +50,48 @@
     position: absolute;
     // transform: translate(0%, 55px);
     width: 100%;
+}
+.desi   {
+    background: #4fd3c7;
+    border-left: 2px solid white;
+}
+.vr {
+    position: absolute;
+    height: 90px;
+    width: 150px;
+    right: 0;
+    top: 0;
+}
+.bth  {
+    background: #07c1b2e5;  
+}
+.next   {
+    top: 50%;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+}
+.details    {
+    bottom: 0;
+    position: absolute;
+    height: 32%;
+    width: 100%;
+}
+.cen    {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%,0);
+    text-align: center;
+}
+.fir {
+    position: absolute;
+    margin-left: 25px;
+    text-align: center;
+}
+.las{
+    position: absolute;
+    margin-right: 25px;
+    right: 0;
+    text-align: center;
 }
