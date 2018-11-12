@@ -1,33 +1,37 @@
 <div class="home" (keyup)='key()'>
     <div class='container-flex top'>
         <h1 class="hom hi">hi! WELCOME to,</h1>
+        <div class="text1"></div>
         <img src="../../assets/images/chatbot.png" class="img">
         <h1 class="welcome hom">Chatbot</h1>
-        <div class="vr desi" (mouseenter)='hoverBox = true; sendhover()' (mouseleave)="hoverBox = false; sendhover();">
-            <h4 class="next">Details</h4>
+        <div class="vr desi">
+            <h4 class="next">{{ displayDetailsBtn }}</h4>
         </div>
-        <div class="vr pt" (click)="detailPage()"></div>
+        <div class="vr pt" (mouseenter)='hoverBox = true; sendhover()' (mouseleave)="hoverBox = false; sendhover();"
+            (click)="detailPage()"></div>
     </div>
     <hr class="hr">
     <div id='write' class="write">
         {{ data }}
     </div>
-    <input [(ngModel)]='message' class="input">
+    <input [(ngModel)]='message' class="pt input">
 </div>
-<div class="details">
-    <h4 class="cen"> Web Mini-Project 2018 </h4><br><br>
-    <hr>
-    <div>
-        <div class="fir">
-            <h5>Ajay Kumar BC</h5> 1AY15CS009
+<div class="d">
+    <div *ngIf="flag">
+        <h4 class="cen"> Web Mini-Project 2018 </h4><br><br>
+        <hr>
+        <div>
+            <div class="cen">
+                <h5>Ajay Kumar BC</h5> 1AY15CS009
+            </div>
+            <div class="fir">
+                <h5>Ajaya Kumara</h5> 1AY15CS010
+            </div>
+            <div class="las">
+                <h5>Manish J</h5> 1AY14CS064
+            </div>
         </div>
-        <div class="cen">
-            <h5>Ajaya Kumara</h5> 1AY15CS010
-        </div>
-        <div class="las">
-            <h5>Manish J</h5> 1AY14CS064
-        </div>
+        <br><br>
+        <hr>
     </div>
-    <br><br><hr>
-
 </div>

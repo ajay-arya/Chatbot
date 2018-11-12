@@ -90,9 +90,11 @@ export class DialogflowComponent implements OnInit {
       this.render.removeClass(btn, 'bth');
     }
   }
-  logout()  {
-    this.server.logedin = false;
-    this.router.navigate(['']);
+  logout() {
+    if (confirm('Are you sure ?')) {
+      this.server.logedin = false;
+      this.router.navigate(['']);
+    }
   }
 
 }

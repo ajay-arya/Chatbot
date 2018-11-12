@@ -8,7 +8,7 @@ import { map } from 'rxjs/operators';
 })
 export class ServerService {
   url = 'localhost:3000/';
-  logedin = true;
+  logedin = false;
   logfromsign = false;
 
   constructor(private http: Http) { }

@@ -1,6 +1,5 @@
-import { Component, OnInit, ElementRef, Renderer2 } from '@angular/core';
+import { Component, OnInit, Renderer2, ElementRef } from '@angular/core';
 import { Router } from '@angular/router';
-import { ChatService } from '../service/chat/chat.service';
 import { ServerService } from '../service/server.service';
 
 @Component({
@@ -14,14 +13,20 @@ export class HomeComponent implements OnInit {
   message;
   displayDetails;
   displayDetailsBtn = 'Details';
-  flag = true;
+  flag = false;
 
-  constructor(private router: Router, private chat: ChatService,
-    public el: ElementRef, public render: Renderer2, private server: ServerService) { }
+  constructor(private render: Renderer2, private el: ElementRef, private router: Router,
+    private server: ServerService) { }
 
   ngOnInit() {
-    this.displayDetails = this.el.nativeElement.getElementsByClassName('details')[0];
+    this.transforms();
+    // const me = this.el.nativeElement.getElementsByClassName('himes')[0];
+    // this.render.addClass(me, 'mo1');
+    // setTimeout(() => {
+    //   this.render.addClass(me, 'mo');
+    // }, 100);
     this.data = 'Press \'TAB\' and Type \'CHAT\' to continue';
+    // this.displayDetails = this.el.nativeElement.getElementsByClassName('details');
   }
 
   login() {
@@ -44,8 +49,10 @@ export class HomeComponent implements OnInit {
     let k = '';
     k = f.toUpperCase();
     const l = k.length;
+    if (this.data === '') {
+      this.data = 'Type \'CHAT\' to continue';
+    }
     if (k[l - 1] === 'T' && k[l - 2] === 'A' && k[l - 3] === 'H' && k[l - 4] === 'C') {
-      console.log('asd');
       if (this.server.logedin) {
         this.router.navigate(['Chatbot']);
       } else {
@@ -55,12 +62,30 @@ export class HomeComponent implements OnInit {
   }
 
   detailPage() {
-    if (this.flag) {
-      this.render.removeClass(this.displayDetails, 'dis');
-    } else {
-      this.render.addClass(this.displayDetails, 'dis');
-    }
+    const details = this.el.nativeElement.getElementsByClassName('d')[0];
+    this.displayDetailsBtn = 'Hide';
     this.flag = !this.flag;
+    if (this.flag) {
+      this.displayDetailsBtn = 'Hide';
+      setTimeout(() => {
+        this.render.addClass(details, 'dM');
+      }, 10);
+    } else {
+      this.displayDetailsBtn = 'Details';
+      setTimeout(() => {
+      }, 10);
+    }
   }
 
+  transforms() {
+    const img = this.el.nativeElement.getElementsByClassName('img')[0];
+    const imgte = this.el.nativeElement.getElementsByClassName('text1')[0];
+    const hr = this.el.nativeElement.getElementsByClassName('hr')[0];
+
+    setTimeout(() => {
+      this.render.addClass(img, 'imgM');
+      this.render.addClass(imgte, 'text1M');
+      this.render.addClass(hr, 'hrM');
+    }, 10);
+  }
 }
