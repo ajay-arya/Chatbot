@@ -86,6 +86,11 @@ export class HomeComponent implements OnInit {
       this.render.addClass(img, 'imgM');
       this.render.addClass(imgte, 'text1M');
       this.render.addClass(hr, 'hrM');
+      setTimeout(() => {
+        this.render.removeClass(img, 'imgM');
+        this.render.removeClass(imgte, 'text1M');
+        this.render.removeClass(hr, 'hrM');
+      }, 1000);
     }, 10);
   }
 }
