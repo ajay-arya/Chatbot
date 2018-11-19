@@ -1,7 +1,9 @@
 # See http://help.github.com/ignore-files/ for more about ignoring files.
 
 #server
+Angular.pptx
 /Chatbot_Server/node_modules
+/Chatbot_Server/mongo-data
 
 # compiled output
 /dist

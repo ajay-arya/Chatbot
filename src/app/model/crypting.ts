@@ -1,12 +1,6 @@
-// import { OnInit } from '@angular/core';
-// import { Component } from '@angular/core';
-
-
-// export class crypting implements OnInit {
 // tslint:disable-next-line:class-name component-class-suffix
 export class crypting {
 
-    // constructor() { }
 
     static encryption(data): any {
         const temp = [];
@@ -23,7 +17,5 @@ export class crypting {
         }
         return temp;
     }
-
-    // ngOnInit() { }
 
 }

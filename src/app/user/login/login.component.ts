@@ -17,16 +17,22 @@ export class LoginComponent implements OnInit {
   userValidation = false;
   validUN;
   validPS;
-  user: any = [{
-    uname: 'ajay-arya',
-    password: 'ajay123'
-  }, {
-    uname: 'abc',
-    password: 'ajay123'
-  }, {
-    uname: '1',
-    password: '2'
-  }];
+  // user: any = [{
+  //   // _id: String
+  //   uname: 'ajay-arya',
+  //   password: 'ajay123'
+  // }, {
+  //   uname: 'abc',
+  //   password: 'ajay123'
+  // }, {
+  //   uname: '1',
+  //   password: '2'
+  // }];
+  // user: any = [{
+  //   _id: String,
+  //   uname: String,
+  //   password: String
+  // }];
   mov;
   constructor(private router: Router, public render: Renderer2, public el: ElementRef, private server: ServerService) { }
 
@@ -46,6 +52,10 @@ export class LoginComponent implements OnInit {
     }
   }
 
+  updates(data) {
+    console.log('data', data);
+  }
+
   signup() {
     this.render.addClass(this.mov, 'move');
     setTimeout(() => {
@@ -63,10 +73,11 @@ export class LoginComponent implements OnInit {
       this.validPS = '*Enter a Password';
       this.passwordValidation = true;
     } else {
-      for (const i of this.user) {
+      for (const i of this.server.user) {
         if (i.uname === this.Uname) {
           if (i.password === this.password) {
             flag = 1;
+            this.server.loginUser = i;
           }
         }
       }

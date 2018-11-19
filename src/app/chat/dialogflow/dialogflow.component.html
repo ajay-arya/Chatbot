@@ -1,7 +1,7 @@
 <div class="header">
   <div class="right">
       <h5 class="username">
-          ajay-arya |
+          {{ name }} |
       </h5>
     
     <img src="assets/images/powerIcon.png" (click) = 'logout()' class="pt imgWrapper">
@@ -42,4 +42,41 @@
   <a class=" primary ">
     Please login first!.....
   </a>
+</div>
+<div class="revButton" (mouseenter) = 'revbtne()' (mouseleave)="revbtnl();" (click) = "revOpen()" >
+  <strong class="text">Reviews</strong>
+</div>
+<div class="reviewsOpen" (click) = 'revClose()'></div>
+<div class="reviews">
+  <div class="revThi">
+    <div class="container resss">
+      
+        <div class="list">
+            <ul #scrollMe style="overflow: scroll; height: 100%" class="listgroup">
+              <li class="list-group-item br l1" *ngFor="let mes of reviews">
+                <img src="{{mes.image}}" [ngClass]="{'avatarl': mes.left,'avatarr': !mes.left}">
+                <div class="message" [ngClass]="{'fr' : !mes.left}">
+                  {{ mes.message }}
+                </div>
+                <div class="timeform">
+                  <!-- <i class="fa fa-clock-o" aria-hidden="true"></i> -->
+                  <strong>
+                    <span class="ff"> {{mes.name }}:</span>
+                  </strong>
+                </div>
+              </li>
+            </ul>
+          </div>
+
+          <div class="chatcontrolrev">
+              <div class="input-group mb-3">
+                <input [(ngModel)]="reComment" class="form-control chatinput" (keydown.enter)="addComment(reComment)">
+                <div class="input-group-append">
+                  <button class="btn bt sendbtn" (click)="addComment(reComment)">Add Comment</button>
+                </div>
+              </div>
+            </div>
+
+    </div>
+  </div>
 </div>

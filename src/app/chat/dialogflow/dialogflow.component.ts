@@ -19,6 +19,14 @@ export class DialogflowComponent implements OnInit {
   right = false;
   hoverBox = false;
   cimg;
+  revbtn;
+  revslide;
+  revslide1;
+  revContents;
+  reviews: any;
+  dis;
+  reComment;
+  name = 'ajay-arya';
 
   @ViewChild('scrollMe') private myScrollContainer: ElementRef;
 
@@ -37,6 +45,13 @@ export class DialogflowComponent implements OnInit {
     public el: ElementRef, public render: Renderer2, private server: ServerService) { }
 
   ngOnInit() {
+    if (!this.server.logedin) {
+      alert('Please login first!...');
+      this.router.navigate(['/login']);
+    }
+    this.server.getReviews();
+    this.name = this.server.loginUser.uname;
+    this.reviews = this.server.reviews;
     this.cimg = this.el.nativeElement.getElementsByClassName('cimg')[0];
     if (this.server.logedin === false) {
       const mov = this.el.nativeElement.getElementsByClassName('chatform')[0];
@@ -45,6 +60,14 @@ export class DialogflowComponent implements OnInit {
       this.render.addClass(mov, 'dis');
       this.render.removeClass(add, 'dis');
     }
+
+    this.revbtn = this.el.nativeElement.getElementsByClassName('revButton')[0];
+    this.revslide = this.el.nativeElement.getElementsByClassName('reviewsOpen')[0];
+    this.revslide1 = this.el.nativeElement.getElementsByClassName('reviews')[0];
+    this.revContents = this.el.nativeElement.getElementsByClassName('revThi')[0];
+
+    this.render.addClass(this.revContents, 'dis');
+
     const message = new Message('Welcome to Chatbot', 'assets/images/bot.png', new Date(), this.left, this.right);
     this.messages.push(message);
     this.scrollToBottom();
@@ -95,6 +118,34 @@ export class DialogflowComponent implements OnInit {
       this.server.logedin = false;
       this.router.navigate(['']);
     }
+  }
+
+  revbtne() {
+    this.render.addClass(this.revbtn, 'btnhover');
+  }
+  revbtnl() {
+    this.render.removeClass(this.revbtn, 'btnhover');
+  }
+  revOpen() {
+    this.render.addClass(this.revslide, 'reviewsOpenOp');
+    this.render.addClass(this.revslide1, 'reviewsOp');
+    setTimeout(() => {
+      this.render.removeClass(this.revContents, 'dis');
+    }, 300);
+  }
+  revClose() {
+    this.render.addClass(this.revContents, 'dis');
+    setTimeout(() => {
+      this.render.removeClass(this.revslide, 'reviewsOpenOp');
+    }, 200);
+    this.render.removeClass(this.revslide1, 'reviewsOp');
+  }
+
+  addComment(data) {
+    const temp = { name: this.name, message: data };
+    this.reviews.push(temp);
+    this.server.postReviewDetail(temp);
+    this.reComment = '';
   }
 
 }

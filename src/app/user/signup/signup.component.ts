@@ -33,16 +33,16 @@ export class SignupComponent implements OnInit {
   mesCP;
   set;
   userValidationFlag = 0;
-  user: any = [{
-    uname: 'ajay-arya',
-    password: 'ajay123'
-  }, {
-    uname: 'abc',
-    password: 'ajay123'
-  }, {
-    uname: '1',
-    password: '2'
-  }];
+  // user: any = [{
+  //   uname: 'ajay-arya',
+  //   password: 'ajay123'
+  // }, {
+  //   uname: 'abc',
+  //   password: 'ajay123'
+  // }, {
+  //   uname: '1',
+  //   password: '2'
+  // }];
   pointer = true;
 
   validFill = false;
@@ -52,6 +52,7 @@ export class SignupComponent implements OnInit {
   constructor(private router: Router, public el: ElementRef, public render: Renderer2, private server: ServerService) { }
 
   ngOnInit() {
+    this.server.getUsersDetail();
     this.set = 0;
     this.sendData = {};
     this.newUserName = false;
@@ -104,19 +105,17 @@ export class SignupComponent implements OnInit {
       }
     } else {
       if (this.allok) {
-        console.log(this.password);
-        this.pass = crypting.encryption(this.password);
+        // this.pass = crypting.encryption(this.password);
 
         this.sendData = {
-          fullName: this.Fname,
-          userName: this.Uname,
-          Email: this.Email,
-          password: this.pass
+          fname: this.Fname,
+          uname: this.Uname,
+          email: this.Email,
+          password: this.password
+          // password: this.pass
         };
-
-        console.log('data:', this.sendData);
+        this.server.postUsersDetail(this.sendData);
         const temp: string = crypting.decryption(this.pass);
-        console.log(temp);
 
       } else {
         this.mesCP = '*Password missmatch!';
@@ -198,7 +197,7 @@ export class SignupComponent implements OnInit {
   checkUser() {
     let flag = 0;
     this.pointer = !this.pointer;
-    for (const i of this.user) {
+    for (const i of this.server.user) {
       if (this.Uname === i.uname) {
         flag = 1;
       }

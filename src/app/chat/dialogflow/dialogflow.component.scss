@@ -1,14 +1,14 @@
 .chatform{
    width: 600px;
    margin: 0 auto;
-   top: 50px;
+   top: 015px;
    position: relative;
 }
 .chatcontrol{
   float: left;
   width: 100%;
   
-  top: -50px;
+  // top: -10px;
   position: relative;
   .chatinput{
     border-radius: 20px 0 0 20px !important;
@@ -128,6 +128,9 @@
   transform: translate(10px, 0);
   transition: all 0.2s ease-in-out;
 }
+.ff{
+  font-size: 16px;
+}
 .chatimgb {
   transform: translate(0px, 0);
   transition: all 0.5s ease-in-out;  
@@ -138,4 +141,84 @@
 }
 .bth  {
   background: #07c1b2e5;  
+}
+.reviews  {
+  left: 0;
+  position: fixed;
+  transform: translate;
+  display: block;
+  height: 100%;
+  width: 0;
+  background: #f1f1f1;
+  z-index: 11;
+  transition: all 0.3s ease-in-out;
+  top: 0;
+}
+.reviewsOp{
+  width: 600px;
+  transition: all 0.4s ease-in-out;
+}
+.reviewsOpen {
+  position: fixed;
+  height: 100%;
+  width: 0;
+  background:#4a4242e0;
+  z-index: 10;
+  top: 0;
+}
+.reviewsOpenOp  {
+  width: 100%;
+}
+.revButton  {
+  height: 250px;
+  width: 50px;
+  display: block;
+  background: #4fd3c757;
+  position: fixed;
+  top: 50%;
+  left: 0;
+  transform: translate(0, -50%);
+  border-radius: 0 25px 25px 0;
+  .text{
+    transform: rotate(-90deg);
+    top: 46%;
+    position: absolute;
+    left: -23%;
+  }
+}
+.btnhover {
+background: #4fd3c7;    
+}
+.resss  {
+  margin-top: 15px;
+  overflow: scroll;
+}
+.chatcontrolrev {
+  float: left;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  width: 570px;
+
+  .chatinput{
+    border-radius: 20px 0 0 20px !important;
+    width: 60%;
+    float: left;
+    border-radius: 0;
+  }
+
+  .sendbtn{
+    width: 100%;
+    float: left;
+    border-radius: 0;
+    text-transform: uppercase;
+    border-radius:  0 20px 20px 0;    
+  }
+}
+.l1{
+  width: 103%;
+    border-radius: 55px 55px 55px 0;
+    left: -27px;
+    background: whitesmoke;
+    position: relative;
 }
